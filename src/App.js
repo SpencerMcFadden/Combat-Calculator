@@ -14,10 +14,10 @@ class App extends Component {
 
   getFormulas() {
     this.setState({formulas: [
-      'weaponAttack',
-      'spellAttackRoll',
-      'spellAttackSave',
-      'healing'
+      'Weapon Attack',
+      'Spell Attack Roll',
+      'Spell Attack Save',
+      'Healing'
     ]});
   }
 

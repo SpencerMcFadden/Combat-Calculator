@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Formula from './Formula';
+import AttackDetailsForm from './AttackDetailsForm';
 
 class Calc extends Component {
   render() {
@@ -14,7 +15,14 @@ class Calc extends Component {
     return (
       <div className="Calc">
         <h3>Testing Calc</h3>
-        {formulaList}
+
+        <div className="CalcInput">
+          <AttackDetailsForm />
+        </div>
+
+        <div className="CalcButtons">
+          {formulaList}
+        </div>
       </div>
     )
   }

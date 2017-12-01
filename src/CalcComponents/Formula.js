@@ -3,34 +3,50 @@ import React, { Component } from 'react';
 class Formula extends Component {
   render() {
     let currentFormula;
-    if(this.props.formula === 'weaponAttack') {
+    if(this.props.formula === 'Weapon Attack') {
       currentFormula = function(hitDie, statMod, miscBonus, numberOfAttacks) {
         return ((hitDie + statMod + miscBonus) * numberOfAttacks);
       }
-      return currentFormula(8, 3, 1, 2);
+      return (
+        <button className="Formulas" onClick={() => alert(currentFormula(7,3,0,2))}>
+          {this.props.formula}
+        </button>
+      )
     }
-    else if(this.props.formula === 'spellAttackRoll') {
+    else if(this.props.formula === 'Spell Attack Roll') {
       currentFormula = function(hitDie, miscBonus, numberOfAttacks) {
         return ((hitDie + miscBonus) * numberOfAttacks);
       }
-      return currentFormula(7, 3, 2);
+      return (
+        <button className="Formulas" onClick={() => alert(currentFormula(8,3,1))}>
+          {this.props.formula}
+        </button>
+      )
     }
-    /*else if(this.props.formula === 'spellAttackSave') {
+    else if(this.props.formula === 'Spell Attack Save') {
       currentFormula = function(hitDie, numberOfDice) {
         return (hitDie * numberOfDice);
       }
-      return currentFormula(6, 3);
+      return (
+        <button className="Formulas" onClick={() => alert(currentFormula(6,2))}>
+          {this.props.formula}
+        </button>
+      )
     }
-    else if(this.props.formula === 'healing') {
+    else if(this.props.formula === 'Healing') {
       currentFormula = function(hitDie, numberOfDice) {
         return -1 * (hitDie * numberOfDice);
       }
-      return currentFormula(6, 3);
-    }*/
+      return (
+        <button className="Formulas" onClick={() => alert(currentFormula(8,3))}>
+          {this.props.formula}
+        </button>
+      )
+    }
     return (
-      <li className="Formulas">
-        {currentFormula}
-      </li>
+      <button className="Formulas">
+        {this.props.formula}
+      </button>
     );
   }
 }
