@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
+import Formula from './Formula';
 
 class AttackDetailsForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      hitDie: 0,
+      hitDie: 3,
       statMod: 0,
       miscBonus: 0,
-      numberOfAttacks: 0
+      numberOfAttacks: 1
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -29,28 +30,39 @@ class AttackDetailsForm extends Component {
   }
 
   render() {
+    let formulaList;
+    if(this.props.formulas) {
+      formulaList = this.props.formulas.map(formula => {
+        return (
+          <Formula formula={formula} dice={this.props.dice} hitDie={this.state.hitDie} statMod={this.state.statMod} miscBonus={this.state.miscBonus} numberOfAttacks={this.state.numberOfAttacks}/>
+        );
+      });
+    }
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form className="Combat-form" onSubmit={this.handleSubmit}>
         <label>
           Hit Die:
-          <select name="hitDie" value={this.state.hitDie} onChange={this.handleChange}>
-            <option value="3">d4</option>
-            <option value="4">d6</option>
-            <option value="5">d8</option>
-            <option value="6">d10</option>
-            <option value="7">d12</option>
+          <select name="hitDie" type="number" value={this.state.hitDie} onChange={this.handleChange}>
+            <option value={this.props.dice[0].dieValue}>{this.props.dice[0].title}</option>
+            <option value={this.props.dice[1].dieValue}>{this.props.dice[1].title}</option>
+            <option value={this.props.dice[2].dieValue}>{this.props.dice[2].title}</option>
+            <option value={this.props.dice[3].dieValue}>{this.props.dice[3].title}</option>
+            <option value={this.props.dice[4].dieValue}>{this.props.dice[4].title}</option>
           </select>
         </label>
         <label>
-          Stat Modifier: <input name="statMod"type="text" value={this.state.statMod} onChange={this.handleChange} />
+          Stat Modifier: <input name="statMod" type="number" value={this.state.statMod} onChange={this.handleChange} />
         </label>
         <label>
-          Misc Bonus: <input name="miscBonus" type="text" value={this.state.miscBonus} onChange={this.handleChange} />
+          Misc Bonus: <input name="miscBonus" type="number" value={this.state.miscBonus} onChange={this.handleChange} />
         </label>
         <label>
-          Number of Attacks: <input name="numberOfAttacks" type="text" value={this.state.numberOfAttacks} onChange={this.handleChange} />
+          Number of Attacks/Dice: <input name="numberOfAttacks" type="number" value={this.state.numberOfAttacks} onChange={this.handleChange} />
         </label>
-        <input type="submit" value="Submit" />
+
+        <div className="Formula-buttons">
+          {formulaList}
+        </div>
       </form>
     )
   }

@@ -25,27 +25,33 @@ class App extends Component {
     this.setState({dice : [
       {
         id: 4,
-        title: 'd4'
+        title: 'd4',
+        dieValue: 3
       },
       {
         id: 6,
-        title: 'd6'
+        title: 'd6',
+        dieValue: 4
       },
       {
         id: 8,
-        title: 'd8'
+        title: 'd8',
+        dieValue: 5
       },
       {
         id: 10,
-        title: 'd10'
+        title: 'd10',
+        dieValue: 6
       },
       {
         id: 12,
-        title: 'd12'
+        title: 'd12',
+        dieValue: 7
       },
       {
         id: 20,
-        title: 'd20'
+        title: 'd20',
+        dieValue: 11
       }
     ]});
   }
@@ -57,6 +63,7 @@ class App extends Component {
 
   componentDidMount() {
     this.getDice();
+    this.getFormulas();
   }
 
   render() {
@@ -70,7 +77,7 @@ class App extends Component {
         <p className="App-intro">
           Functionality not included (yet)
         </p>
-        <Calc formulas={this.state.formulas} />
+        <Calc formulas={this.state.formulas} dice={this.state.dice} />
       </div>
     );
   }
