@@ -48,6 +48,19 @@
   margin-right: 5px;
 }
 
+.Result-display {
+  margin: auto;
+  width: 60px;
+  height: 50px;
+  border: 2px solid black;
+  border-radius: 10%;
+}
+
+#result {
+  top: 50%;
+  transform: translateY(-33%);
+}
+
 h3 {
   text-decoration: underline;
 }
