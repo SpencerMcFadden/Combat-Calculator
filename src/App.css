@@ -1,5 +1,5 @@
 .App {
-  font-family: 'Average', serif;
+  font-family: 'Libre Baskerville', serif;
   text-align: center;
 }
 
@@ -9,7 +9,7 @@
 }
 
 .App-header {
-  background-color: #222;
+  background-color: #867453;
   height: 150px;
   padding: 20px;
   color: white;
@@ -17,6 +17,7 @@
 
 .App-title {
   font-size: 1.5em;
+  text-shadow: 1px 1px 1.5px #1f1710;
 }
 
 .App-intro {
@@ -24,10 +25,17 @@
 }
 
 .Combat-form {
+  background: #FDF1DC;
+  border: 1px solid #E69A28;
+  box-shadow: 0 0 1.5em #867453;
+  display: inline-block;
+  margin: 30px;
   padding: 30px 5px 20px 5px;
+  width: 60%;
 }
 
 .Combat-form label {
+  color: #922610;
   padding-left: 7.5px;
   padding-right: 7.5px;
 }
@@ -43,20 +51,25 @@
   box-shadow: 1px 1px 1.5px #1f1710;
   font-family: 'Average', serif;
   font-size: 15px;
+  padding: 2px 5px;
   position: relative;
   margin-left: 5px;
   margin-right: 5px;
+  margin-top: 10px;
 }
 
 .Result-display {
   margin: auto;
   width: 60px;
   height: 50px;
-  border: 2px solid black;
-  border-radius: 10%;
+  background: #FDF1DC;
+  border: 1px solid #E69A28;
+  border-radius: 5%;
+  box-shadow: 0 0 1.5em #867453;
 }
 
 #result {
+  color: #922610;
   top: 50%;
   transform: translateY(-33%);
 }
@@ -64,8 +77,9 @@
 h3 {
   text-decoration: underline;
 }
-
+/*
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+*/
