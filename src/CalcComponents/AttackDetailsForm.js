@@ -7,7 +7,7 @@ class AttackDetailsForm extends Component {
     if(this.props.formulas) {
       formulaList = this.props.formulas.map(formula => {
         return (
-          <Formula key={formula} formula={formula} dice={this.props.dice} hitDie={this.props.hitDie} statMod={this.props.statMod} miscBonus={this.props.miscBonus} numberOfAttacks={this.props.numberOfAttacks}/>
+          <Formula key={formula} formula={formula} stats={this.props.stats} />
         );
       });
     }
@@ -15,7 +15,7 @@ class AttackDetailsForm extends Component {
       <form className="Combat-form" onSubmit={this.props.onSubmit}>
         <label>
           Hit Die:
-          <select name="hitDie" type="number" value={this.props.hitDie} onChange={this.props.onChange}>
+          <select name="hitDie" type="number" value={this.props.stats['hitDie']} onChange={this.props.onChange}>
             <option value={this.props.dice[0].dieValue}>{this.props.dice[0].title}</option>
             <option value={this.props.dice[1].dieValue}>{this.props.dice[1].title}</option>
             <option value={this.props.dice[2].dieValue}>{this.props.dice[2].title}</option>
@@ -24,13 +24,13 @@ class AttackDetailsForm extends Component {
           </select>
         </label>
         <label>
-          Stat Modifier:<input name="statMod" type="number" value={this.props.statMod} onChange={this.props.onChange} />
+          Stat Modifier:<input name="statMod" type="number" value={this.props.stats['statMod']} onChange={this.props.onChange} />
         </label>
         <label>
-          Misc Bonus:<input name="miscBonus" type="number" value={this.props.miscBonus} onChange={this.props.onChange} />
+          Misc Bonus:<input name="miscBonus" type="number" value={this.props.stats['miscBonus']} onChange={this.props.onChange} />
         </label>
         <label>
-          Number of Attacks/Dice:<input name="numberOfAttacks" type="number" value={this.props.numberOfAttacks} onChange={this.props.onChange} />
+          Number of Attacks/Dice:<input name="numberOfAttacks" type="number" value={this.props.stats['numberOfAttacks']} onChange={this.props.onChange} />
         </label>
 
         <div className="Formula-buttons">

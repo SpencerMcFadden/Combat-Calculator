@@ -9,13 +9,10 @@ class App extends Component {
     this.state = {
       formulas: [],
       dice: [],
-      hitDie: 3,
-      statMod: 0,
-      miscBonus: 0,
-      numberOfAttacks: 1
+      stats: {}
     }
 
-    this.handleChange = this.handleChange.bind(this);
+    this.handleStatChange = this.handleStatChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -63,14 +60,34 @@ class App extends Component {
     ]});
   }
 
-  handleChange(event) {
+  getStats() {
+    this.setState({stats: {
+      hitDie: 3,
+      statMod: 0,
+      miscBonus: 0,
+      numberOfAttacks: 1
+    }});
+  }
+
+  /* At the moment I don't actually need this, I'll use it if the state ever needs to change something besides an object */
+  // handleChange(event) {
+  //   const target = event.target;
+  //   const value = target.value;
+  //   const name = target.name;
+  //
+  //   this.setState({
+  //     [name]: value
+  //   });
+  // }
+
+  handleStatChange(event) {
     const target = event.target;
     const value = target.value;
     const name = target.name;
+    const stats = this.state.stats;
+    stats[name] = value;
 
-    this.setState({
-      [name]: value
-    });
+    this.setState({stats});
   }
 
   handleSubmit(event) {
@@ -80,11 +97,13 @@ class App extends Component {
   componentWillMount() {
     this.getDice();
     this.getFormulas();
+    this.getStats();
   }
 
   componentDidMount() {
     this.getDice();
     this.getFormulas();
+    this.getStats();
   }
 
   render() {
@@ -96,11 +115,10 @@ class App extends Component {
           <h1 className="App-title">D&D 5e DPR Calculator</h1>
         </header>
         <p className="App-intro">
-          Functionality not included (yet)
+          Functionality somewhat included
         </p>
-        <Calc formulas={this.state.formulas} dice={this.state.dice} hitDie={this.state.hitDie}
-              statMod={this.state.statMod} miscBonus={this.state.miscBonus} numberOfAttacks={this.state.numberOfAttacks}
-              onChange={this.handleChange} onSubmit={this.handleSubmit} />
+        <Calc formulas={this.state.formulas} dice={this.state.dice} stats={this.state.stats}
+          onChange={this.handleStatChange} onSubmit={this.handleSubmit} />
       </div>
     );
   }

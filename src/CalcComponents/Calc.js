@@ -13,8 +13,7 @@ class Calc extends Component {
         </div>
 
         <div className="Calculator-input">
-          <AttackDetailsForm dice={this.props.dice} formulas={this.props.formulas} hitDie={this.props.hitDie}
-            statMod={this.props.statMod} miscBonus={this.props.miscBonus} numberOfAttacks={this.props.numberOfAttacks}
+          <AttackDetailsForm dice={this.props.dice} formulas={this.props.formulas} stats={this.props.stats} 
             onChange={this.props.onChange} onSubmit={this.props.onSubmit} />
         </div>
       </div>
