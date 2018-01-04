@@ -8,17 +8,15 @@ class App extends Component {
     super();
     this.state = {
       formulas: [],
-      dice: []
+      dice: [],
+      hitDie: 3,
+      statMod: 0,
+      miscBonus: 0,
+      numberOfAttacks: 1
     }
-  }
 
-  getFormulas() {
-    this.setState({formulas: [
-      'Weapon Attack',
-      'Spell Attack Roll',
-      'Spell Attack Save',
-      'Healing'
-    ]});
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   getDice() {
@@ -56,6 +54,29 @@ class App extends Component {
     ]});
   }
 
+  getFormulas() {
+    this.setState({formulas: [
+      'Weapon Attack',
+      'Spell Attack Roll',
+      'Spell Attack Save',
+      'Healing'
+    ]});
+  }
+
+  handleChange(event) {
+    const target = event.target;
+    const value = target.value;
+    const name = target.name;
+
+    this.setState({
+      [name]: value
+    });
+  }
+
+  handleSubmit(event) {
+    event.preventDefault();
+  }
+
   componentWillMount() {
     this.getDice();
     this.getFormulas();
@@ -77,7 +98,9 @@ class App extends Component {
         <p className="App-intro">
           Functionality not included (yet)
         </p>
-        <Calc formulas={this.state.formulas} dice={this.state.dice} />
+        <Calc formulas={this.state.formulas} dice={this.state.dice} hitDie={this.state.hitDie}
+              statMod={this.state.statMod} miscBonus={this.state.miscBonus} numberOfAttacks={this.state.numberOfAttacks}
+              onChange={this.handleChange} onSubmit={this.handleSubmit} />
       </div>
     );
   }
