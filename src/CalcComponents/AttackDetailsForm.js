@@ -11,16 +11,18 @@ class AttackDetailsForm extends Component {
         );
       });
     }
+    
+    var diceValues = [];
+    for(var i = 0; i < this.props.dice.length - 1; i++) {
+      diceValues.push(<option value={this.props.dice[i].dieValue}>{this.props.dice[i].title}</option>);
+    }
+
     return (
       <form className="Combat-form" onSubmit={this.props.onSubmit}>
         <label>
           Hit Die:
           <select name="hitDie" type="number" value={this.props.stats['hitDie']} onChange={this.props.onChange}>
-            <option value={this.props.dice[0].dieValue}>{this.props.dice[0].title}</option>
-            <option value={this.props.dice[1].dieValue}>{this.props.dice[1].title}</option>
-            <option value={this.props.dice[2].dieValue}>{this.props.dice[2].title}</option>
-            <option value={this.props.dice[3].dieValue}>{this.props.dice[3].title}</option>
-            <option value={this.props.dice[4].dieValue}>{this.props.dice[4].title}</option>
+            {diceValues}
           </select>
         </label>
         <label>

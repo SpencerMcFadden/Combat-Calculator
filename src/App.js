@@ -81,9 +81,9 @@ class App extends Component {
   // }
 
   handleStatChange(event) {
-    const target = event.target;
-    const value = target.value;
-    const name = target.name;
+    const value = event.target.value;
+    const name = event.target.name;
+
     const stats = this.state.stats;
     stats[name] = value;
 
