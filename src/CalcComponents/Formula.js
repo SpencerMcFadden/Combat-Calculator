@@ -1,61 +1,63 @@
 import React, { Component } from 'react';
 
 class Formula extends Component {
+  weaponAttack(hitDie, statMod, miscBonus, numberOfAttacks) {
+    document.getElementById('Result-title').innerHTML = 'Weapon Attack';
+    return Math.ceil((Number(hitDie) + Number(statMod) + Number(miscBonus)) * numberOfAttacks);
+  }
+
+  spellAttackRoll(hitDie, miscBonus, numberOfAttacks) {
+    document.getElementById('Result-title').innerHTML = 'Spell Attack Roll';
+    return Math.ceil((Number(hitDie) + Number(miscBonus)) * numberOfAttacks);
+  }
+
+  spellAttackSave(hitDie, numberOfDice){
+    document.getElementById('Result-title').innerHTML = 'Spell Attack Save';
+    return Math.ceil(Number(hitDie) * Number(numberOfDice));
+  }
+
+  healing(hitDie, numberOfDice) {
+    document.getElementById('Result-title').innerHTML = 'Healing';
+    return -1 * Math.ceil(Number(hitDie) * Number(numberOfDice));
+  }
+
+
   render() {
-    let currentFormula;
-    if(this.props.formula === 'Weapon Attack') {
-      currentFormula = function(hitDie, statMod, miscBonus, numberOfAttacks) {
-        document.getElementById('Result-title').innerHTML = 'Weapon Attack';
-        return ((Number(hitDie) + Number(statMod) + Number(miscBonus)) * numberOfAttacks);
-      }
+    let statObject = this.props.stats;
+    let currentFormula = this.props.formula;
+
+    if(currentFormula === 'Weapon Attack') {
       return (
         <button className="Formulas" onClick={() =>
-          document.getElementById('result').innerHTML = currentFormula(this.props.hitDie, this.props.statMod, this.props.miscBonus, this.props.numberOfAttacks)}>
-          {this.props.formula}
+          document.getElementById('result').innerHTML = this.weaponAttack(statObject['hitDie'], statObject['statMod'], statObject['miscBonus'], statObject['numberOfAttacks'])}>
+          {currentFormula}
         </button>
       )
     }
-    else if(this.props.formula === 'Spell Attack Roll') {
-      currentFormula = function(hitDie, miscBonus, numberOfAttacks) {
-        document.getElementById('Result-title').innerHTML = 'Spell Attack Roll';
-        return ((Number(hitDie) + Number(miscBonus)) * numberOfAttacks);
-      }
+    else if(currentFormula === 'Spell Attack Roll') {
       return (
         <button className="Formulas" onClick={() =>
-          document.getElementById('result').innerHTML = currentFormula(this.props.hitDie, this.props.miscBonus, this.props.numberOfAttacks)}>
-          {this.props.formula}
+          document.getElementById('result').innerHTML = this.spellAttackRoll(statObject['hitDie'], statObject['miscBonus'], statObject['numberOfAttacks'])}>
+          {currentFormula}
         </button>
       )
     }
-    else if(this.props.formula === 'Spell Attack Save') {
-      currentFormula = function(hitDie, numberOfDice) {
-        document.getElementById('Result-title').innerHTML = 'Spell Attack Save';
-        return (Number(hitDie) * Number(numberOfDice));
-      }
+    else if(currentFormula === 'Spell Attack Save') {
       return (
         <button className="Formulas" onClick={() =>
-          document.getElementById('result').innerHTML = currentFormula(this.props.hitDie, this.props.numberOfAttacks)}>
-          {this.props.formula}
+          document.getElementById('result').innerHTML = this.spellAttackSave(statObject['hitDie'], statObject['numberOfAttacks'])}>
+          {currentFormula}
         </button>
       )
     }
-    else if(this.props.formula === 'Healing') {
-      currentFormula = function(hitDie, numberOfDice) {
-        document.getElementById('Result-title').innerHTML = 'Healing';
-        return -1 * (Number(hitDie) * Number(numberOfDice));
-      }
+    else if(currentFormula === 'Healing') {
       return (
         <button className="Formulas" onClick={() =>
-          document.getElementById('result').innerHTML = currentFormula(this.props.hitDie, this.props.numberOfAttacks)}>
-          {this.props.formula}
+          document.getElementById('result').innerHTML = this.healing(statObject['hitDie'], statObject['numberOfAttacks'])}>
+          {currentFormula}
         </button>
       )
     }
-    return (
-      <button className="Formulas">
-        {this.props.formula}
-      </button>
-    );
   }
 }
 
