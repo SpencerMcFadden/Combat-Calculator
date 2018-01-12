@@ -21,32 +21,32 @@ class App extends Component {
       {
         id: 4,
         title: 'd4',
-        dieValue: 3
+        dieValue: 2.5
       },
       {
         id: 6,
         title: 'd6',
-        dieValue: 4
+        dieValue: 3.5
       },
       {
         id: 8,
         title: 'd8',
-        dieValue: 5
+        dieValue: 4.5
       },
       {
         id: 10,
         title: 'd10',
-        dieValue: 6
+        dieValue: 5.5
       },
       {
         id: 12,
         title: 'd12',
-        dieValue: 7
+        dieValue: 6.5
       },
       {
         id: 20,
         title: 'd20',
-        dieValue: 11
+        dieValue: 10.5
       }
     ]});
   }

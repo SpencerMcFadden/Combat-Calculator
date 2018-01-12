@@ -11,10 +11,10 @@ class AttackDetailsForm extends Component {
         );
       });
     }
-    
+
     var diceValues = [];
     for(var i = 0; i < this.props.dice.length - 1; i++) {
-      diceValues.push(<option value={this.props.dice[i].dieValue}>{this.props.dice[i].title}</option>);
+      diceValues.push(<option key={this.props.dice[i].id} value={this.props.dice[i].dieValue}>{this.props.dice[i].title}</option>);
     }
 
     return (
