@@ -12,10 +12,14 @@ class AttackDetailsForm extends Component {
       });
     }
 
-    var diceValues = [];
-    for(var i = 0; i < this.props.dice.length - 1; i++) {
-      diceValues.push(<option key={this.props.dice[i].id} value={this.props.dice[i].dieValue}>{this.props.dice[i].title}</option>);
-    }
+    let diceValues = this.props.dice.map(die => {
+      if(die.id !== 20) {
+        return (
+          <option key={die.id} value={die.dieValue}>{die.title}</option>
+        );
+      }
+      return false;
+    });
 
     return (
       <form className="Combat-form" onSubmit={this.props.onSubmit}>
@@ -42,10 +46,5 @@ class AttackDetailsForm extends Component {
     )
   }
 }
-
-
-// Calc.propTypes = {
-//   formulas: React.PropTypes.array
-// }
 
 export default AttackDetailsForm;

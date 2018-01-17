@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// import Formula from './Formula';
 import AttackDetailsForm from './AttackDetailsForm';
 
 class Calc extends Component {
@@ -13,7 +12,7 @@ class Calc extends Component {
         </div>
 
         <div className="Calculator-input">
-          <AttackDetailsForm dice={this.props.dice} formulas={this.props.formulas} stats={this.props.stats} 
+          <AttackDetailsForm dice={this.props.dice} formulas={this.props.formulas} stats={this.props.stats}
             onChange={this.props.onChange} onSubmit={this.props.onSubmit} />
         </div>
       </div>
