@@ -1,16 +1,29 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
+import * as React from 'react';
+var logo = require('./logo.svg');
 import './App.css';
 import Calc from './CalcComponents/Calc';
 
-class App extends Component {
-  constructor() {
-    super();
+interface AppProps {
+
+}
+
+interface AppState {
+  formulas: string[],
+  dice: any[],
+  stats: any
+}
+
+export class App extends React.Component<AppProps, AppState> {
+
+  state: AppState;
+
+  constructor(appGlobalState: AppState) {
+    super(appGlobalState);
     this.state = {
       formulas: [],
       dice: [],
       stats: {}
-    }
+    };
 
     this.handleStatChange = this.handleStatChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -80,7 +93,7 @@ class App extends Component {
   //   });
   // }
 
-  handleStatChange(event) {
+  handleStatChange(event: any) {
     const value = event.target.value;
     const name = event.target.name;
 
@@ -90,7 +103,7 @@ class App extends Component {
     this.setState({stats});
   }
 
-  handleSubmit(event) {
+  handleSubmit(event: any) {
     event.preventDefault();
   }
 
@@ -112,7 +125,7 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">D&D 5e DPR Calculator</h1>
+          <h1 className="App-title">DnD 5e DPR Calculator</h1>
         </header>
         <p className="App-intro">
           Functionality somewhat included
