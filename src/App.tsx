@@ -1,28 +1,18 @@
+/// <reference path="./interfaces.d.ts" />
+
 import * as React from 'react';
-var logo = require('./logo.svg');
 import './App.css';
 import Calc from './CalcComponents/Calc';
 
-interface AppProps {
+const logo = require('./logo.svg');
 
-}
-
-interface AppState {
-  formulas: string[],
-  dice: any[],
-  stats: any
-}
-
-export class App extends React.Component<AppProps, AppState> {
-
-  state: AppState;
-
-  constructor(appGlobalState: AppState) {
-    super(appGlobalState);
+class App extends React.Component<AppProps, AppState> {
+  constructor(props: AppProps) {
+    super(props);
     this.state = {
-      formulas: [],
-      dice: [],
-      stats: {}
+      formulas: this.props.formulas,
+      dice: this.props.dice,
+      stats: this.props.stats
     };
 
     this.handleStatChange = this.handleStatChange.bind(this);
@@ -82,7 +72,8 @@ export class App extends React.Component<AppProps, AppState> {
     }});
   }
 
-  /* At the moment I don't actually need this, I'll use it if the state ever needs to change something besides an object */
+  /* At the moment I don't actually need this, I'll use it if the state ever
+  needs to change something besides an object */
   // handleChange(event) {
   //   const target = event.target;
   //   const value = target.value;
@@ -93,9 +84,9 @@ export class App extends React.Component<AppProps, AppState> {
   //   });
   // }
 
-  handleStatChange(event: any) {
-    const value = event.target.value;
-    const name = event.target.name;
+  handleStatChange(event: React.FormEvent<HTMLInputElement>) {
+    const value = (event.target as HTMLInputElement).value;
+    const name = (event.target as HTMLInputElement).name;
 
     const stats = this.state.stats;
     stats[name] = value;
@@ -103,7 +94,7 @@ export class App extends React.Component<AppProps, AppState> {
     this.setState({stats});
   }
 
-  handleSubmit(event: any) {
+  handleSubmit(event: React.FormEvent<HTMLElement>) {
     event.preventDefault();
   }
 
@@ -120,18 +111,23 @@ export class App extends React.Component<AppProps, AppState> {
   }
 
   render() {
-    console.log(this.props, this.state);
+    // console.log(this.props, this.state);
     return (
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">DnD 5e DPR Calculator</h1>
+          <h1 className="App-title">D&D 5e DPR Calculator</h1>
         </header>
         <p className="App-intro">
           Functionality somewhat included
         </p>
-        <Calc formulas={this.state.formulas} dice={this.state.dice} stats={this.state.stats}
-          onChange={this.handleStatChange} onSubmit={this.handleSubmit} />
+        <Calc
+          formulas={this.state.formulas}
+          dice={this.state.dice}
+          stats={this.state.stats}
+          onChange={this.handleStatChange}
+          onSubmit={this.handleSubmit}
+        />
       </div>
     );
   }
