@@ -4,20 +4,19 @@
 }
 
 .App-logo {
-  animation: App-logo-spin infinite 20s linear;
   height: 80px;
 }
 
 .App-header {
   background-color: #867453;
-  height: 150px;
-  padding: 20px;
   color: white;
+  height: 9.5em;
+  padding: 20px;
 }
 
 .App-title {
-  font-size: 1.5em;
-  text-shadow: 1px 1px 1.5px #1f1710;
+  font-size: 1.75em;
+  text-shadow: 1px 2px 1px #1f1710;
 }
 
 .App-intro {
@@ -26,18 +25,18 @@
 
 .Combat-form {
   background: #FDF1DC;
-  border: 1px solid #E69A28;
-  box-shadow: 0 0 1.5em #867453;
+  border-top: 2px solid #E69A28;
+  box-shadow: 2px 3px .25em #867453;
   display: inline-block;
-  margin: 30px;
-  padding: 30px 5px 20px 5px;
+  margin: 2.25em;
+  padding: 2em .25em 1em;
   width: 60%;
 }
 
 .Combat-form label {
   color: #922610;
-  padding-left: 7.5px;
-  padding-right: 7.5px;
+  padding-left: 1em;
+  padding-right: 1em;
 }
 
 .Formula-buttons {
@@ -46,26 +45,23 @@
 
 .Formulas {
   background-color: #c99a6e;
-  border: .5px solid #9e7753;
+  border: .5px solid #c99a6e;
   border-radius: 3px;
-  box-shadow: 1px 1px 1.5px #1f1710;
-  font-family: 'Average', serif;
-  font-size: 15px;
+  box-shadow: 2px 3px .15em #867453;
+  font: 15px 'Average', serif;
   padding: 2px 5px;
   position: relative;
-  margin-left: 5px;
-  margin-right: 5px;
-  margin-top: 10px;
+  margin: 10px 5px;
 }
 
 .Result-display {
+  background: #FDF1DC;
+  border-top: 2px solid #E69A28;
+  border-radius: 5%;
+  box-shadow: 2px 3px .25em #867453;
+  height: 50px;
   margin: auto;
   width: 60px;
-  height: 50px;
-  background: #FDF1DC;
-  border: 1px solid #E69A28;
-  border-radius: 5%;
-  box-shadow: 0 0 1.5em #867453;
 }
 
 #result {
@@ -82,9 +78,3 @@ body {
 h3 {
   text-decoration: underline;
 }
-/*
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-*/
