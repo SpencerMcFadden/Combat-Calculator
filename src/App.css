@@ -52,6 +52,19 @@
   padding: 2px 5px;
   position: relative;
   margin: 10px 5px;
+  transition: .2s ease-in;
+}
+
+.Formulas:hover {
+  background-color: #dbb592;
+  border-color: #dbb592;
+  transition: .25s ease-in;
+}
+
+.Formulas:active {
+  background-color: #aa815a;
+  border-color: #aa815a;
+  transition: .1s;
 }
 
 .Result-display {
@@ -77,4 +90,16 @@ body {
 
 h3 {
   text-decoration: underline;
+}
+
+input, select {
+  margin: 2px;
+  border: none;
+  box-shadow: 1px 1px 2px #FDF1DC;
+  transition: .35s ease-in;
+}
+
+input:focus, select:focus {
+  box-shadow: 1px 1px .15em #E69A28;
+  transition: .35s ease-in;
 }
