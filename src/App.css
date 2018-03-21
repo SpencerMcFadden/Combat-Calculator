@@ -11,6 +11,7 @@
   background-color: #867453;
   color: white;
   height: 9.5em;
+  width: auto;
   padding: 20px;
 }
 
@@ -23,11 +24,26 @@
   font-size: large;
 }
 
+.Calculator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.Calculator-input {
+  display: inherit;
+  align-items: center;
+  justify-content: center;
+  width: 60%;
+}
+
 .Combat-form {
   background: #FDF1DC;
   border-top: 2px solid #E69A28;
   box-shadow: 2px 3px .25em #867453;
-  display: inline-block;
+  display: inherit;
+  flex-flow: column wrap;
+  align-items: center;
   margin: 2.25em;
   padding: 2em .25em 1em;
   width: 60%;
@@ -35,11 +51,16 @@
 
 .Combat-form label {
   color: #922610;
+  display: inherit;
+  align-items: flex-end;
   padding-left: 1em;
   padding-right: 1em;
+  width: auto;
 }
 
 .Formula-buttons {
+  display: inherit;
+  justify-content: center;
   padding: 15px;
 }
 
@@ -65,6 +86,12 @@
   background-color: #aa815a;
   border-color: #aa815a;
   transition: .1s;
+}
+
+.Label-holder {
+  display: inherit;
+  flex-flow: row wrap;
+  justify-content: center;
 }
 
 .Result-display {
@@ -100,6 +127,6 @@ input, select {
 }
 
 input:focus, select:focus {
-  box-shadow: 1px 1px .15em #E69A28;
+  box-shadow: 1px 1px .2em #E69A28;
   transition: .35s ease-in;
 }

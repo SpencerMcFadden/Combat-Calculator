@@ -23,21 +23,23 @@ class AttackDetailsForm extends Component {
 
     return (
       <form className="Combat-form" onSubmit={this.props.onSubmit}>
-        <label>
-          Hit Die:
-          <select name="hitDie" type="number" value={this.props.stats['hitDie']} onChange={this.props.onChange}>
-            {diceValues}
-          </select>
-        </label>
-        <label>
-          Stat Modifier:<input name="statMod" type="number" value={this.props.stats['statMod']} onChange={this.props.onChange} />
-        </label>
-        <label>
-          Misc Bonus:<input name="miscBonus" type="number" value={this.props.stats['miscBonus']} onChange={this.props.onChange} />
-        </label>
-        <label>
-          Number of Attacks/Dice:<input name="numberOfAttacks" type="number" value={this.props.stats['numberOfAttacks']} onChange={this.props.onChange} />
-        </label>
+        <div className="Label-holder">
+          <label>
+            Hit Die:
+            <select name="hitDie" type="number" value={this.props.stats['hitDie']} onChange={this.props.onChange}>
+              {diceValues}
+            </select>
+          </label>
+          <label>
+            Stat Modifier:<input name="statMod" type="number" value={this.props.stats['statMod']} onChange={this.props.onChange} />
+          </label>
+          <label>
+            Misc Bonus:<input name="miscBonus" type="number" value={this.props.stats['miscBonus']} onChange={this.props.onChange} />
+          </label>
+          <label>
+            Number of Attacks/Dice:<input name="numberOfAttacks" type="number" value={this.props.stats['numberOfAttacks']} onChange={this.props.onChange} />
+          </label>
+        </div>
 
         <div className="Formula-buttons">
           {formulaList}
