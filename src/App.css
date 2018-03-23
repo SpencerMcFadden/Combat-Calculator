@@ -81,20 +81,25 @@
   padding: 2px 5px;
   position: relative;
   margin: 10px 5px;
-  transition: .2s ease-in;
+  transform: translate3d(0, 0, 0);
+  transition: all .2s ease;
 }
 
 .Formulas:hover {
   background-color: #dbb592;
   border-color: #dbb592;
+  box-shadow: 3px 4px .15em #867453;
   cursor: pointer;
-  transition: .2s ease-in;
+  transform: translate3d(-1px, -1px, 0);
+  transition: all .2s ease;
 }
 
 .Formulas:active {
   background-color: #aa815a;
   border-color: #aa815a;
-  transition: .02s ease-in;
+  box-shadow: 1px 2px .15em #867453;
+  transform: translate3d(0, 0, 0);
+  transition: all .02s ease;
 }
 
 .Label-holder {
@@ -129,6 +134,12 @@ h3 {
   text-decoration: underline;
 }
 
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
+}
+
 input[type=number] {
   -moz-appearance: textfield;
   appearance: textfield;
@@ -149,12 +160,12 @@ input, select {
   border: none;
   box-shadow: 1px 1px .2em #FDF1DC;
   margin: 2px;
-  transition: .2s ease-in;
+  transition: .2s ease;
 }
 
 input:focus, select:focus {
   box-shadow: 1px 1px .2em #E69A28;
-  transition: .35s ease-in;
+  transition: .35s ease;
 }
 
 select[type=number] {

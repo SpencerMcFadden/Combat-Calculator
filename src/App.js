@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Helmet } from "react-helmet";
 import logo from './logo.svg';
 import './App.css';
 import Calc from './CalcComponents/Calc';
@@ -110,6 +111,9 @@ class App extends Component {
     console.log(this.props, this.state);
     return (
       <div className="App">
+        <Helmet>
+          <meta name="viewport" content="width=device-width, initial-scale=1" />
+        </Helmet>
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">D&D 5e DPR Calculator</h1>
