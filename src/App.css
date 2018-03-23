@@ -94,7 +94,7 @@
 .Formulas:active {
   background-color: #aa815a;
   border-color: #aa815a;
-  transition: .02s;
+  transition: .02s ease-in;
 }
 
 .Label-holder {
@@ -131,20 +131,23 @@ h3 {
 
 input[type=number] {
   -moz-appearance: textfield;
+  appearance: textfield;
   border-radius: 2px;
 }
 
 input[type=number]:focus {
   -moz-appearance: number-input;
+  appearance: textfield;
 }
 
 input[type=number]:hover {
   -moz-appearance: number-input;
+  appearance: textfield;
 }
 
 input, select {
   border: none;
-  box-shadow: 1px 1px 2px #FDF1DC;
+  box-shadow: 1px 1px .2em #FDF1DC;
   margin: 2px;
   transition: .2s ease-in;
 }
