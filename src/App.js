@@ -117,8 +117,10 @@ class App extends Component {
         <p className="App-intro">
           Functionality somewhat included
         </p>
-        <Calc formulas={this.state.formulas} dice={this.state.dice} stats={this.state.stats}
-          onChange={this.handleStatChange} onSubmit={this.handleSubmit} />
+        <div className="App-body">
+          <Calc formulas={this.state.formulas} dice={this.state.dice} stats={this.state.stats}
+            onChange={this.handleStatChange} onSubmit={this.handleSubmit} />
+        </div>
       </div>
     );
   }

@@ -3,6 +3,12 @@
   text-align: center;
 }
 
+.App-body {
+  display: flex;
+  justify-content: center;
+  flex-flow: row wrap;
+}
+
 .App-logo {
   height: 80px;
 }
@@ -21,38 +27,40 @@
 }
 
 .App-intro {
+  display: inline-flex;
   font-size: large;
 }
 
 .Calculator {
-  display: flex;
-  flex-direction: column;
   align-items: center;
+  display: inherit;
+  flex-flow: column wrap;
+  width: 50%;
 }
 
 .Calculator-input {
-  display: inherit;
   align-items: center;
+  display: inherit;
   justify-content: center;
-  width: 60%;
+  width: 100%;
 }
 
 .Combat-form {
+  align-items: center;
   background: #FDF1DC;
   border-top: 2px solid #E69A28;
   box-shadow: 2px 3px .25em #867453;
   display: inherit;
   flex-flow: column wrap;
-  align-items: center;
   margin: 2.25em;
   padding: 2em .25em 1em;
-  width: 60%;
+  width: 80%;
 }
 
 .Combat-form label {
+  align-items: flex-end;
   color: #922610;
   display: inherit;
-  align-items: flex-end;
   padding-left: 1em;
   padding-right: 1em;
   width: auto;
@@ -79,18 +87,20 @@
 .Formulas:hover {
   background-color: #dbb592;
   border-color: #dbb592;
-  transition: .25s ease-in;
+  cursor: pointer;
+  transition: .2s ease-in;
 }
 
 .Formulas:active {
   background-color: #aa815a;
   border-color: #aa815a;
-  transition: .1s;
+  transition: .02s;
 }
 
 .Label-holder {
+  align-items: center;
   display: inherit;
-  flex-flow: row wrap;
+  flex-flow: column wrap;
   justify-content: center;
 }
 
@@ -119,14 +129,22 @@ h3 {
   text-decoration: underline;
 }
 
+input[type=number] {
+  border-radius: 2px;
+}
+
 input, select {
-  margin: 2px;
   border: none;
   box-shadow: 1px 1px 2px #FDF1DC;
-  transition: .35s ease-in;
+  margin: 2px;
+  transition: .2s ease-in;
 }
 
 input:focus, select:focus {
   box-shadow: 1px 1px .2em #E69A28;
   transition: .35s ease-in;
+}
+
+select[type=number] {
+  border-radius: 2px;
 }
