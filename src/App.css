@@ -130,7 +130,16 @@ h3 {
 }
 
 input[type=number] {
+  -moz-appearance: textfield;
   border-radius: 2px;
+}
+
+input[type=number]:focus {
+  -moz-appearance: number-input;
+}
+
+input[type=number]:hover {
+  -moz-appearance: number-input;
 }
 
 input, select {
@@ -146,5 +155,7 @@ input:focus, select:focus {
 }
 
 select[type=number] {
+  appearance: none;
+  cursor: text;
   border-radius: 2px;
 }
