@@ -21,6 +21,9 @@ class Formula extends Component {
     return -1 * Math.ceil(Number(hitDie) * Number(numberOfDice));
   }
 
+  dynamicAttackFormula() {
+    
+  }
 
   render() {
     let statObject = this.props.stats;
