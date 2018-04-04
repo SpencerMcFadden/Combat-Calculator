@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 class Formula extends Component {
-  weaponAttack(hitDie, statMod, miscBonus, numberOfAttacks) {
+  /*weaponAttack(hitDie, statMod, miscBonus, numberOfAttacks) {
     document.getElementById('Result-title').innerHTML = 'Weapon Attack';
     return Math.ceil((Number(hitDie) + Number(statMod) + Number(miscBonus)) * numberOfAttacks);
   }
@@ -19,17 +19,29 @@ class Formula extends Component {
   healing(hitDie, numberOfDice) {
     document.getElementById('Result-title').innerHTML = 'Healing';
     return -1 * Math.ceil(Number(hitDie) * Number(numberOfDice));
-  }
+  }*/
 
-  dynamicAttackFormula() {
-    
+  dynamicAttackFormula(hitDie, numberOfDice, statMod, miscBonus) {
+    if(statMod === 0 && miscBonus > 0) {
+      document.getElementById('Result-title').innerHTML = 'Spell Attack Roll';
+    }
+    else if(statMod > 0 || miscBonus > 0){
+      document.getElementById('Result-title').innerHTML = 'Weapon Attack';
+    }
+    else if(numberOfDice < 0) {
+      document.getElementById('Result-title').innerHTML = 'Healing';
+    }
+    else {
+      document.getElementById('Result-title').innerHTML = 'Spell Attack Save';
+    }
+    return Math.ceil((Number(hitDie) + Number(statMod) + Number(miscBonus)) * numberOfDice)
   }
 
   render() {
     let statObject = this.props.stats;
     let currentFormula = this.props.formula;
 
-    if(currentFormula === 'Weapon Attack') {
+    /*if(currentFormula === 'Weapon Attack') {
       return (
         <button className="Formulas" onClick={() =>
           document.getElementById('result').innerHTML = this.weaponAttack(statObject['hitDie'], statObject['statMod'], statObject['miscBonus'], statObject['numberOfAttacks'])}>
@@ -60,7 +72,14 @@ class Formula extends Component {
           {currentFormula}
         </button>
       )
-    }
+    }*/
+      return (
+        <button className="Formulas" onClick={() =>
+          document.getElementById('result').innerHTML =
+            this.dynamicAttackFormula(statObject['hitDie'], statObject['numberOfAttacks'], statObject['statMod'], statObject['miscBonus'])}>
+          {currentFormula}
+        </button>
+      )
   }
 }
 
