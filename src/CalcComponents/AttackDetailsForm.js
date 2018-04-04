@@ -2,9 +2,13 @@ import React, { Component } from 'react';
 import Formula from './Formula';
 
 class AttackDetailsForm extends Component {
-  onBoxChecked(elementId) {
+  toggleBoxChecked(elementId) {
     let currentElement = document.getElementById(elementId);
     currentElement.disabled = currentElement.disabled ? false : true;
+    if (currentElement.disabled === true) {
+      this.props.onDisable(elementId);
+      currentElement.value = this.props.stats[currentElement];
+    }
   }
 
   render() {
@@ -37,12 +41,12 @@ class AttackDetailsForm extends Component {
           </label>
           <label>
             Stat Modifier:
-            <input name="statModCheck" type="checkbox" onChange={() => this.onBoxChecked('statMod')} />
+            <input name="statModCheck" type="checkbox" onChange={() => this.toggleBoxChecked('statMod')} />
             <input name="statMod" id="statMod" type="number" value={this.props.stats['statMod']} onChange={this.props.onChange} disabled="disabled" />
           </label>
           <label>
             Misc Bonus:
-            <input name="miscBonusCheck" type="checkbox" onChange={() => this.onBoxChecked('miscBonus')} />
+            <input name="miscBonusCheck" type="checkbox" onChange={() => this.toggleBoxChecked('miscBonus')} />
             <input name="miscBonus" id="miscBonus" type="number" value={this.props.stats['miscBonus']} onChange={this.props.onChange} disabled="disabled" />
           </label>
           <label>

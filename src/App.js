@@ -13,6 +13,7 @@ class App extends Component {
       stats: {}
     }
 
+    this.handleStatFieldDisable = this.handleStatFieldDisable.bind(this);
     this.handleStatChange = this.handleStatChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -80,6 +81,12 @@ class App extends Component {
   //     [name]: value
   //   });
   // }
+  handleStatFieldDisable(statName) {
+    const stats = this.state.stats;
+    stats[statName] = 0;
+
+    this.setState({stats});
+  }
 
   handleStatChange(event) {
     const value = event.target.value;
@@ -123,7 +130,7 @@ class App extends Component {
         </p>
         <div className="App-body">
           <Calc formulas={this.state.formulas} dice={this.state.dice} stats={this.state.stats}
-            onChange={this.handleStatChange} onSubmit={this.handleSubmit} />
+            onChange={this.handleStatChange} onSubmit={this.handleSubmit} onDisable={this.handleStatFieldDisable} />
         </div>
       </div>
     );
