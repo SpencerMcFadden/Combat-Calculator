@@ -93,6 +93,10 @@ class App extends Component {
     const stats = this.state.stats;
     stats[statName] = 0;
 
+    if (statName === 'numberOfAddDice') {
+      stats[statName] = 1;
+    }
+
     this.setState({stats});
   }
 

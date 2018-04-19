@@ -8,6 +8,11 @@ class AttackDetailsForm extends Component {
     if (currentElement.disabled === true) {
       this.props.onDisable(elementId);
       currentElement.value = this.props.stats[currentElement];
+      if (elementId === 'additionalDie') {
+        this.props.onDisable('numberOfAddDice');
+        let currentElement = document.getElementById('numberOfAddDice')
+        currentElement.value = this.props.stats[currentElement];
+      }
     }
   }
 
