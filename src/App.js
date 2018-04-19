@@ -21,6 +21,11 @@ class App extends Component {
   getDice() {
     this.setState({dice : [
       {
+        id: 0,
+        title: ' ',
+        dieValue: 0
+      },
+      {
         id: 4,
         title: 'd4',
         dieValue: 2.5
@@ -65,7 +70,8 @@ class App extends Component {
 
   getStats() {
     this.setState({stats: {
-      hitDie: 3,
+      hitDie: 2.5,
+      additionalDie: 0,
       statMod: 0,
       miscBonus: 0,
       numberOfAttacks: 1

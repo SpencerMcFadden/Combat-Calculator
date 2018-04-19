@@ -40,6 +40,13 @@ class AttackDetailsForm extends Component {
             </select>
           </label>
           <label>
+            Additional Die:
+            <input name="additionalDieCheck" type="checkbox" onChange={() => this.toggleBoxChecked('additionalDie')} />
+            <select name="additionalDie" id="additionalDie" type="number" value={this.props.stats['additionalDie']} onChange={this.props.onChange} disabled="disabled">
+              {diceValues}
+            </select>
+          </label>
+          <label>
             Stat Modifier:
             <input name="statModCheck" type="checkbox" onChange={() => this.toggleBoxChecked('statMod')} />
             <input name="statMod" id="statMod" type="number" value={this.props.stats['statMod']} onChange={this.props.onChange} disabled="disabled" />

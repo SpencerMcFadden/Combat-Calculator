@@ -21,8 +21,8 @@ class Formula extends Component {
     return -1 * Math.ceil(Number(hitDie) * Number(numberOfDice));
   }*/
 
-  dynamicAttackFormula(hitDie, numberOfDice, statMod, miscBonus) {
-    if(statMod === 0 && miscBonus > 0) {
+  dynamicAttackFormula(hitDie, additionalDie, numberOfDice, statMod, miscBonus) {
+    if(statMod == 0 && miscBonus > 0) {
       document.getElementById('Result-title').innerHTML = 'Spell Attack Roll';
     }
     else if(statMod > 0 || miscBonus > 0){
@@ -34,7 +34,7 @@ class Formula extends Component {
     else {
       document.getElementById('Result-title').innerHTML = 'Spell Attack Save';
     }
-    return Math.ceil((Number(hitDie) + Number(statMod) + Number(miscBonus)) * numberOfDice)
+    return Math.ceil((Number(hitDie) + Number(additionalDie))  * numberOfDice + Number(statMod) + Number(miscBonus))
   }
 
   render() {
@@ -76,7 +76,7 @@ class Formula extends Component {
       return (
         <button className="Formulas" onClick={() =>
           document.getElementById('result').innerHTML =
-            this.dynamicAttackFormula(statObject['hitDie'], statObject['numberOfAttacks'], statObject['statMod'], statObject['miscBonus'])}>
+            this.dynamicAttackFormula(statObject['hitDie'], statObject['additionalDie'], statObject['numberOfAttacks'], statObject['statMod'], statObject['miscBonus'])}>
           {currentFormula}
         </button>
       )
