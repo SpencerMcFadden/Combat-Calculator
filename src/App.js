@@ -74,7 +74,8 @@ class App extends Component {
       additionalDie: 0,
       statMod: 0,
       miscBonus: 0,
-      numberOfAttacks: 1
+      numberOfHitDice: 1,
+      numberOfAddDice: 1
     }});
   }
 

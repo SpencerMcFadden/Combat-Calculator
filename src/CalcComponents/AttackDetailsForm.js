@@ -38,6 +38,8 @@ class AttackDetailsForm extends Component {
             <select name="hitDie" id="hitDie" type="number" value={this.props.stats['hitDie']} onChange={this.props.onChange}>
               {diceValues}
             </select>
+            # of Dice:
+            <input name="numberOfHitDice" id="numberOfHitDice" type="number" value={this.props.stats['numberOfHitDice']} onChange={this.props.onChange} />
           </label>
           <label>
             Additional Die:
@@ -45,6 +47,8 @@ class AttackDetailsForm extends Component {
             <select name="additionalDie" id="additionalDie" type="number" value={this.props.stats['additionalDie']} onChange={this.props.onChange} disabled="disabled">
               {diceValues}
             </select>
+            # of Dice:
+            <input name="numberOfAddDice" id="numberOfAddDice" type="number" value={this.props.stats['numberOfAddDice']} onChange={this.props.onChange} disabled={!this.props.stats['additionalDie']} />
           </label>
           <label>
             Stat Modifier:
@@ -55,10 +59,6 @@ class AttackDetailsForm extends Component {
             Misc Bonus:
             <input name="miscBonusCheck" type="checkbox" onChange={() => this.toggleBoxChecked('miscBonus')} />
             <input name="miscBonus" id="miscBonus" type="number" value={this.props.stats['miscBonus']} onChange={this.props.onChange} disabled="disabled" />
-          </label>
-          <label>
-            Number of Attacks/Dice:
-            <input name="numberOfAttacks" id="numberOfDice" type="number" value={this.props.stats['numberOfAttacks']} onChange={this.props.onChange} />
           </label>
         </div>
 
