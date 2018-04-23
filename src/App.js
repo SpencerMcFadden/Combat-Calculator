@@ -100,16 +100,6 @@ class App extends Component {
     }});
   }
 
-  /* At the moment I don't actually need this, I'll use it if the state ever needs to change something besides an object */
-  // handleChange(event) {
-  //   const target = event.target;
-  //   const value = target.value;
-  //   const name = target.name;
-  //
-  //   this.setState({
-  //     [name]: value
-  //   });
-  // }
   handleDragStart(event) {
     this.setState({dragElement: event.target});
 
@@ -125,7 +115,7 @@ class App extends Component {
   handleDrop(event) {
     event.preventDefault();
     event.stopPropagation();
-    
+
     const eventSave = this.state.dragElement;
     eventSave.innerHTML = event.target.innerHTML;
     event.target.innerHTML = event.dataTransfer.getData('text/html');
