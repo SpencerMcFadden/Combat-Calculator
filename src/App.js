@@ -12,9 +12,14 @@ class App extends Component {
     this.state = {
       formulas: [],
       dice: [],
-      stats: {}
+      stats: {},
+      partyMembers: [],
+      dragElement: null
     }
 
+    this.handleDragStart = this.handleDragStart.bind(this);
+    this.handleDragOver = this.handleDragOver.bind(this);
+    this.handleDrop = this.handleDrop.bind(this);
     this.handleStatFieldDisable = this.handleStatFieldDisable.bind(this);
     this.handleStatChange = this.handleStatChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -60,6 +65,7 @@ class App extends Component {
     ]});
   }
 
+
   getFormulas() {
     this.setState({formulas: [
       /*'Weapon Attack',
@@ -67,6 +73,19 @@ class App extends Component {
       'Spell Attack Save',
       'Healing',*/
       'Calculate'
+    ]});
+  }
+
+  getPartyMembers() {
+    this.setState({partyMembers: [
+      {
+        name: 'Testing',
+        damagePerRound: 13
+      },
+      {
+        name: 'Testing2',
+        damagePerRound: 12
+      }
     ]});
   }
 
@@ -91,6 +110,27 @@ class App extends Component {
   //     [name]: value
   //   });
   // }
+  handleDragStart(event) {
+    this.setState({dragElement: event.target});
+
+    event.dataTransfer.setData('text/html', event.target.innerHTML);
+    event.dataTransfer.effectAllowed = 'move';
+  }
+
+  handleDragOver(event) {
+    event.preventDefault();
+    event.dataTransfer.dropEffect = 'move';
+  }
+
+  handleDrop(event) {
+    event.preventDefault();
+    event.stopPropagation();
+    
+    const eventSave = this.state.dragElement;
+    eventSave.innerHTML = event.target.innerHTML;
+    event.target.innerHTML = event.dataTransfer.getData('text/html');
+  }
+
   handleStatFieldDisable(statName) {
     const stats = this.state.stats;
     stats[statName] = 0;
@@ -119,12 +159,14 @@ class App extends Component {
   componentWillMount() {
     this.getDice();
     this.getFormulas();
+    this.getPartyMembers();
     this.getStats();
   }
 
   componentDidMount() {
     this.getDice();
     this.getFormulas();
+    this.getPartyMembers();
     this.getStats();
   }
 
@@ -145,7 +187,8 @@ class App extends Component {
         <div className="App-body">
           <Calc formulas={this.state.formulas} dice={this.state.dice} stats={this.state.stats}
             onChange={this.handleStatChange} onSubmit={this.handleSubmit} onDisable={this.handleStatFieldDisable} />
-          <Party />
+          <Party partyMembers={this.state.partyMembers} dragElement={this.state.dragElement}
+            onDragStart={this.handleDragStart} onDragOver={this.handleDragOver} onDrop={this.handleDrop} />
           <Monsters />
         </div>
       </div>
