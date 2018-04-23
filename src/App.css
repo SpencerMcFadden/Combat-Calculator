@@ -35,7 +35,7 @@
   align-items: center;
   display: inherit;
   flex-flow: column wrap;
-  width: 50%;
+  width: 55%;
 }
 
 .Calculator-input {
@@ -107,6 +107,30 @@
   display: inherit;
   flex-flow: column wrap;
   justify-content: center;
+}
+
+.Monsters {
+  align-items: center;
+  background: #FDF1DC;
+  border-top: 2px solid #CC3232;
+  box-shadow: 2px 3px .25em #867453;
+  display: inherit;
+  flex-flow: column wrap;
+  margin: 2.25em;
+  padding: 2em .25em 1em;
+  width: 45%;
+}
+
+.Party {
+  align-items: center;
+  background: #FDF1DC;
+  border-top: 2px solid #3FB235;
+  box-shadow: 2px 3px .25em #867453;
+  display: inherit;
+  flex-flow: column wrap;
+  margin: 2.25em;
+  padding: 2em .25em 1em;
+  width: 45%;
 }
 
 .Result-display {

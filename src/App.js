@@ -3,6 +3,8 @@ import { Helmet } from "react-helmet";
 import logo from './logo.svg';
 import './App.css';
 import Calc from './CalcComponents/Calc';
+import Party from './GroupComponents/Party';
+import Monsters from './GroupComponents/Monsters';
 
 class App extends Component {
   constructor() {
@@ -143,6 +145,8 @@ class App extends Component {
         <div className="App-body">
           <Calc formulas={this.state.formulas} dice={this.state.dice} stats={this.state.stats}
             onChange={this.handleStatChange} onSubmit={this.handleSubmit} onDisable={this.handleStatFieldDisable} />
+          <Party />
+          <Monsters />
         </div>
       </div>
     );
