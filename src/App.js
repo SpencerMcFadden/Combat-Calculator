@@ -14,11 +14,13 @@ class App extends Component {
       dice: [],
       stats: {},
       partyMembers: [],
-      dragElement: null
+      dragElement: null,
+      isBeingDragged: false
     }
 
     this.handleDragStart = this.handleDragStart.bind(this);
     this.handleDragOver = this.handleDragOver.bind(this);
+    this.handleDragLeave = this.handleDragLeave.bind(this);
     this.handleDrop = this.handleDrop.bind(this);
     this.handleStatFieldDisable = this.handleStatFieldDisable.bind(this);
     this.handleStatChange = this.handleStatChange.bind(this);
@@ -85,6 +87,14 @@ class App extends Component {
       {
         name: 'Testing2',
         damagePerRound: 12
+      },
+      {
+        name: 'Testing3',
+        damagePerRound: -8
+      },
+      {
+        name: 'Testing4',
+        damagePerRound: 6
       }
     ]});
   }
@@ -101,7 +111,8 @@ class App extends Component {
   }
 
   handleDragStart(event) {
-    this.setState({dragElement: event.target});
+    this.setState({dragElement: event.currentTarget});
+    this.setState({isBeingDragged: true});
 
     event.dataTransfer.setData('text/html', event.target.innerHTML);
     event.dataTransfer.effectAllowed = 'move';
@@ -109,12 +120,19 @@ class App extends Component {
 
   handleDragOver(event) {
     event.preventDefault();
+    event.currentTarget.style.border = '1px dotted green';
     event.dataTransfer.dropEffect = 'move';
+  }
+
+  handleDragLeave(event) {
+    event.currentTarget.style.border = 'none';
   }
 
   handleDrop(event) {
     event.preventDefault();
     event.stopPropagation();
+    this.setState({isBeingDragged: false});
+    event.currentTarget.style.border = 'none';
 
     const eventSave = this.state.dragElement;
     eventSave.innerHTML = event.target.innerHTML;
@@ -177,8 +195,8 @@ class App extends Component {
         <div className="App-body">
           <Calc formulas={this.state.formulas} dice={this.state.dice} stats={this.state.stats}
             onChange={this.handleStatChange} onSubmit={this.handleSubmit} onDisable={this.handleStatFieldDisable} />
-          <Party partyMembers={this.state.partyMembers} dragElement={this.state.dragElement}
-            onDragStart={this.handleDragStart} onDragOver={this.handleDragOver} onDrop={this.handleDrop} />
+          <Party isBeingDragged={this.state.isBeingDragged} partyMembers={this.state.partyMembers} dragElement={this.state.dragElement}
+            onDragStart={this.handleDragStart} onDragOver={this.handleDragOver} onDragLeave={this.handleDragLeave} onDrop={this.handleDrop} />
           <Monsters />
         </div>
       </div>

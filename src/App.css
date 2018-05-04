@@ -35,7 +35,7 @@
   align-items: center;
   display: inherit;
   flex-flow: column wrap;
-  width: 55%;
+  width: 60%;
 }
 
 .Calculator-input {
@@ -82,7 +82,7 @@
   position: relative;
   margin: 10px 5px;
   transform: translate3d(0, 0, 0);
-  transition: all .2s ease;
+  transition: all .1s linear;
 }
 
 .Formulas:hover {
@@ -90,8 +90,8 @@
   border-color: #dbb592;
   box-shadow: 3px 4px .15em #867453;
   cursor: pointer;
-  transform: translate3d(-1px, -1px, 0);
-  transition: all .2s ease;
+  transform: translate3d(-1px, -1px, 0) scale(1.03);
+  transition: all .1s linear;
 }
 
 .Formulas:active {
@@ -99,7 +99,7 @@
   border-color: #aa815a;
   box-shadow: 1px 2px .15em #867453;
   transform: translate3d(0, 0, 0);
-  transition: all .02s ease;
+  transition: all .02s linear;
 }
 
 .Label-holder {
@@ -118,7 +118,7 @@
   flex-flow: column wrap;
   margin: 2.25em;
   padding: 2em .25em 1em;
-  width: 45%;
+  width: 40%;
 }
 
 .Party {
@@ -130,7 +130,31 @@
   flex-flow: column wrap;
   margin: 2.25em;
   padding: 2em .25em 1em;
-  width: 45%;
+  width: 40%;
+}
+
+.Party-form {
+  justify-content: space-between;
+  display: inherit;
+  width: 100%;
+}
+
+.Party-form h2{
+  align-self: flex-end;
+  display: inherit;
+}
+
+.Party-info {
+  align-self: center;
+  display: inherit;
+  width: 80%;
+}
+
+.Party-info li {
+  border-radius: 2px;
+  cursor: grab;
+  display: inherit;
+  padding: 1px;
 }
 
 .Result-display {
