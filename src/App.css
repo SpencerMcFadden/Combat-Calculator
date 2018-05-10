@@ -3,205 +3,215 @@
   text-align: center;
 }
 
-.App-body {
-  display: flex;
-  justify-content: center;
-  flex-flow: row wrap;
-}
+  .App-header {
+    background-color: #867453;
+    color: white;
+    height: 9.5em;
+    width:   auto;
+    padding: 20px;
+  }
 
-.App-logo {
-  height: 80px;
-}
+    .App-logo {
+      height: 80px;
+    }
 
-.App-header {
-  background-color: #867453;
-  color: white;
-  height: 9.5em;
-  width: auto;
-  padding: 20px;
-}
+    .App-title {
+      font-size: 1.75em;
+      text-shadow: 1px 2px 1px #1f1710;
+    }
 
-.App-title {
-  font-size: 1.75em;
-  text-shadow: 1px 2px 1px #1f1710;
-}
+  .App-intro {
+    display: inline-flex;
+    font-size: large;
+  }
 
-.App-intro {
-  display: inline-flex;
-  font-size: large;
-}
+  .App-body {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+  }
 
-.Calculator {
-  align-items: center;
-  display: inherit;
-  flex-flow: column wrap;
-  width: 60%;
-}
 
-.Calculator-input {
-  align-items: center;
-  display: inherit;
-  justify-content: center;
-  width: 100%;
-}
+    .Calculator {
+      align-items: center;
+      display: inherit;
+      flex-flow: column wrap;
+      width: 60%;
+    }
 
-.Combat-form {
-  align-items: center;
-  background: #FDF1DC;
-  border-top: 2px solid #E69A28;
-  box-shadow: 2px 3px .25em #867453;
-  display: inherit;
-  flex-flow: column wrap;
-  margin: 2.25em;
-  padding: 2em .25em 1em;
-  width: 80%;
-}
+      .Result-title {
+        text-decoration: underline;
+      }
 
-.Combat-form label {
-  align-items: flex-end;
-  color: #922610;
-  display: inherit;
-  padding-left: 1em;
-  padding-right: 1em;
-  width: auto;
-}
+      .Result-display {
+        background: #fdf1dc;
+        border-top: 2px solid #e69a28;
+        border-radius: 5%;
+        box-shadow: 2px 3px .25em #867453;
+        height: 50px;
+        width:  60px;
+        margin: auto;
+      }
 
-.Formula-buttons {
-  display: inherit;
-  justify-content: center;
-  padding: 15px;
-}
+        .result {
+          color: #922610;
+          top: 50%;
+          transform: translateY(-33%);
+        }
 
-.Formulas {
-  background-color: #c99a6e;
-  border: .5px solid #c99a6e;
-  border-radius: 3px;
-  box-shadow: 2px 3px .15em #867453;
-  font: 15px 'Average', serif;
-  padding: 2px 5px;
-  position: relative;
-  margin: 10px 5px;
-  transform: translate3d(0, 0, 0);
-  transition: all .1s linear;
-}
+      .Calculator-input {
+        align-items: center;
+        display: inherit;
+        justify-content: center;
+        width: 100%;
+      }
 
-.Formulas:hover {
-  background-color: #dbb592;
-  border-color: #dbb592;
-  box-shadow: 3px 4px .15em #867453;
-  cursor: pointer;
-  transform: translate3d(-1px, -1px, 0) scale(1.03);
-  transition: all .1s linear;
-}
 
-.Formulas:active {
-  background-color: #aa815a;
-  border-color: #aa815a;
-  box-shadow: 1px 2px .15em #867453;
-  transform: translate3d(0, 0, 0);
-  transition: all .02s linear;
-}
+        .Combat-form {
+          align-items: center;
+          background: #fdf1dc;
+          border-top: 2px solid #e69a28;
+          box-shadow: 2px 3px .25em #867453;
+          display: inherit;
+          flex-flow: column wrap;
+          margin: 2.25em;
+          padding: 2em .25em 1em;
+          width: 80%;
+        }
 
-.Label-holder {
-  align-items: center;
-  display: inherit;
-  flex-flow: column wrap;
-  justify-content: center;
-}
+        .Label-holder {
+          align-items: center;
+          display: inherit;
+          flex-flow: column wrap;
+          justify-content: center;
+        }
 
-.Monsters {
-  align-items: center;
-  background: #FDF1DC;
-  border-top: 2px solid #CC3232;
-  box-shadow: 2px 3px .25em #867453;
-  display: inherit;
-  flex-flow: column wrap;
-  margin: 2.25em;
-  padding: 2em .25em 1em;
-  width: 40%;
-}
+          .Combat-form label {
+            align-items: flex-end;
+            color: #922610;
+            display: inherit;
+            padding-left:  1em;
+            padding-right: 1em;
+            width: auto;
+          }
 
-.Party {
-  align-items: center;
-  background: #FDF1DC;
-  border-top: 2px solid #3FB235;
-  box-shadow: 2px 3px .25em #867453;
-  display: inherit;
-  flex-flow: column wrap;
-  margin: 2.25em;
-  padding: 2em .25em 1em;
-  width: 40%;
-}
+        .Formula-buttons {
+          display: inherit;
+          justify-content: center;
+          padding: 15px;
+        }
 
-.Party-form {
-  justify-content: space-between;
-  display: inherit;
-  width: 100%;
-}
 
-.Party-form h2{
-  align-self: flex-end;
-  display: inherit;
-}
+          .Formulas {
+            background-color: #c99a6e;
+            border: .5px solid #c99a6e;
+            border-radius: 3px;
+            box-shadow: 2px 3px .15em #867453;
+            font: 15px 'Average', serif;
+            padding: 2px 5px;
+            position: relative;
+            margin: 10px 5px;
+            transform: translate3d(0, 0, 0);
+            transition: all .1s linear;
+          }
 
-.Party-info {
-  align-self: center;
-  display: inherit;
-  width: 80%;
-}
+          .Formulas:hover {
+            background-color: #dbb592;
+            border-color:     #dbb592;
+            box-shadow: 3px 4px .15em #867453;
+            cursor: pointer;
+            transform: translate3d(-1px, -1px, 0) scale(1.03);
+            transition: all .1s linear;
+          }
 
-.Party-info li {
-  border-radius: 2px;
-  cursor: grab;
-  display: inherit;
-  padding: 1px;
-}
+          .Formulas:active {
+            background-color: #aa815a;
+            border-color:     #aa815a;
+            box-shadow: 1px 2px .15em #867453;
+            transform: translate3d(0, 0, 0);
+            transition: all .02s linear;
+          }
 
-.Result-display {
-  background: #FDF1DC;
-  border-top: 2px solid #E69A28;
-  border-radius: 5%;
-  box-shadow: 2px 3px .25em #867453;
-  height: 50px;
-  margin: auto;
-  width: 60px;
-}
 
-#result {
-  color: #922610;
-  top: 50%;
-  transform: translateY(-33%);
+    .Party {
+      align-items: center;
+      background: #fdf1dc;
+      border-top: 2px solid #3fb235;
+      box-shadow: 2px 3px .25em #867453;
+      display: inherit;
+      flex-flow: column wrap;
+      margin: 2.25em;
+      padding: 2em .25em 1em;
+      width: 40%;
+    }
+
+      .Party-info {
+        align-self: center;
+        display: inherit;
+        width: 80%;
+      }
+
+        .Party-form {
+          display: inherit;
+          justify-content: space-between;
+          width: 100%;
+        }
+
+          .Total-dpr{
+            align-self: flex-end;
+            display: inherit;
+          }
+
+        .Group-member {
+          border-radius: 2px;
+          cursor: grab;
+          display: inherit;
+          padding: 1px;
+        }
+
+
+    .Monsters {
+      align-items: center;
+      background: #FDF1DC;
+      border-top: 2px solid #CC3232;
+      box-shadow: 2px 3px .25em #867453;
+      display: inherit;
+      flex-flow: column wrap;
+      margin: 2.25em;
+      padding: 2em .25em 1em;
+      width: 40%;
+    }
+
+
+
+
+
+html {
+  -webkit-font-smoothing: antialiased;
+   -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
 }
 
 body {
   background-image: url("/assets/imgs/phb_bg.png");
-  background-repeat: repeat-y;
+  background-repeat:  repeat-y;
 }
 
-h3 {
-  text-decoration: underline;
-}
-
-html {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  box-sizing: border-box;
-}
 
 input[type=number] {
   -moz-appearance: textfield;
-  appearance: textfield;
+       appearance: textfield;
   border-radius: 2px;
 }
 
 input[type=number]:focus {
   -moz-appearance: number-input;
-  appearance: textfield;
+          appearance: textfield;
 }
 
 input[type=number]:hover {
   -moz-appearance: number-input;
-  appearance: textfield;
+          appearance: textfield;
 }
 
 input, select {
@@ -222,11 +232,15 @@ select[type=number] {
   border-radius: 2px;
 }
 
+
+
+
+
 [draggable] {
-  -moz-user-select: none;
-  -khtml-user-select: none;
   -webkit-user-select: none;
-  user-select: none;
-  -khtml-user-drag: element;
+   -khtml-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
   -webkit-user-drag: element;
+   -khtml-user-drag: element;
 }
