@@ -95,6 +95,42 @@
             width: auto;
           }
 
+            .statInput, .statSelect {
+              border: none;
+              box-shadow: 1px 1px .2em #FDF1DC;
+              margin: 2px;
+              transition: .2s ease;
+            }
+
+              .statInput[type=number] {
+                -moz-appearance: textfield;
+                     appearance: textfield;
+
+                border-radius: 2px;
+              }
+
+              .statSelect[type=number] {
+                appearance: none;
+                cursor: text;
+                border-radius: 2px;
+              }
+
+                .statInput[type=number]:hover {
+                  -moz-appearance: number-input;
+                          appearance: textfield;
+                }
+
+                  .statInput[type=number]:focus {
+                    -moz-appearance: number-input;
+                            appearance: textfield;
+                  }
+
+                  .statInput:focus, .statSelect:focus {
+                    box-shadow: 1px 1px .2em #E69A28;
+                    transition: .35s ease;
+                  }
+
+
         .Formula-buttons {
           display: inherit;
           justify-content: center;
@@ -189,47 +225,13 @@
 html {
   -webkit-font-smoothing: antialiased;
    -moz-osx-font-smoothing: grayscale;
+
   box-sizing: border-box;
 }
 
 body {
   background-image: url("/assets/imgs/phb_bg.png");
-  background-repeat:  repeat-y;
-}
-
-
-input[type=number] {
-  -moz-appearance: textfield;
-       appearance: textfield;
-  border-radius: 2px;
-}
-
-input[type=number]:focus {
-  -moz-appearance: number-input;
-          appearance: textfield;
-}
-
-input[type=number]:hover {
-  -moz-appearance: number-input;
-          appearance: textfield;
-}
-
-input, select {
-  border: none;
-  box-shadow: 1px 1px .2em #FDF1DC;
-  margin: 2px;
-  transition: .2s ease;
-}
-
-input:focus, select:focus {
-  box-shadow: 1px 1px .2em #E69A28;
-  transition: .35s ease;
-}
-
-select[type=number] {
-  appearance: none;
-  cursor: text;
-  border-radius: 2px;
+  background-repeat: repeat-y;
 }
 
 
