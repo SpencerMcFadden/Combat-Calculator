@@ -16,13 +16,15 @@ class PartyMembers extends Component {
       partyDpr = this.calcPartyDpr();
       partyList = this.props.partyMembers.map(member => {
         return (
-          <li className="Group-member" isBeingDragged={this.props.isBeingDragged} draggable="true" onDragStart={this.props.onDragStart}
-            onDragOver={this.props.onDragOver} onDragLeave={this.props.onDragLeave} onDrop={this.props.onDrop}>{member.name} {member.damagePerRound}</li>
+          <li className="Group-member"
+            draggable="true" onDragStart={this.props.onDragStart}
+            onDragOver={this.props.onDragOver} onDragLeave={this.props.onDragLeave}
+            onDrop={this.props.onDrop}>{member.name} {member.damagePerRound}</li>
         );
       });
     }
     return(
-      <div className="Party-form">
+      <div className="Faction-form">
         <ul>
           {partyList}
         </ul>

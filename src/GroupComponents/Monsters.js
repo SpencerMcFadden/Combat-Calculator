@@ -5,12 +5,14 @@ class Monsters extends Component {
   render() {
     return(
       <div className="Monsters">
-        <h4>Monsters</h4>
-
-        <div className="Monsters-info">
-          <MonsterMembers />
+        <div className="Faction-info">
+          <MonsterMembers
+            monsterMembers={this.props.monsterMembers} dragElement={this.props.dragElement}
+            onDragStart={this.props.onDragStart} onDragOver={this.props.onDragOver}
+            onDragLeave={this.props.onDragLeave} onDrop={this.props.onDrop}/>
         </div>
-      </div>);
+      </div>
+    );
   }
 }
 

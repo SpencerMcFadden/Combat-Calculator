@@ -14,8 +14,9 @@ class App extends Component {
       dice: [],
       stats: {},
       partyMembers: [],
+      monsterMembers: [],
       dragElement: null,
-      isBeingDragged: false
+      isDialogOpen: false
     }
 
     this.handleDragStart = this.handleDragStart.bind(this);
@@ -25,6 +26,8 @@ class App extends Component {
     this.handleStatFieldDisable = this.handleStatFieldDisable.bind(this);
     this.handleStatChange = this.handleStatChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleOpenDialog = this.handleOpenDialog.bind(this);
+    this.handleCloseDialog = this.handleCloseDialog.bind(this);
   }
 
   getDice() {
@@ -70,11 +73,8 @@ class App extends Component {
 
   getFormulas() {
     this.setState({formulas: [
-      /*'Weapon Attack',
-      'Spell Attack Roll',
-      'Spell Attack Save',
-      'Healing',*/
-      'Calculate'
+      'Calculate',
+      'Submit'
     ]});
   }
 
@@ -99,6 +99,27 @@ class App extends Component {
     ]});
   }
 
+  getMonsterMembers() {
+    this.setState({monsterMembers: [
+      {
+        name: 'MTesting',
+        damagePerRound: 9
+      },
+      {
+        name: 'MTesting2',
+        damagePerRound: 11
+      },
+      {
+        name: 'MTesting3',
+        damagePerRound: -6
+      },
+      {
+        name: 'MTesting4',
+        damagePerRound: 3
+      }
+    ]});
+  }
+
   getStats() {
     this.setState({stats: {
       hitDie: 2.5,
@@ -112,7 +133,6 @@ class App extends Component {
 
   handleDragStart(event) {
     this.setState({dragElement: event.currentTarget});
-    this.setState({isBeingDragged: true});
 
     event.dataTransfer.setData('text/html', event.target.innerHTML);
     event.dataTransfer.effectAllowed = 'move';
@@ -120,19 +140,18 @@ class App extends Component {
 
   handleDragOver(event) {
     event.preventDefault();
-    event.currentTarget.style.border = '1px dotted green';
+    event.currentTarget.style.background = '#7ab8ff70';
     event.dataTransfer.dropEffect = 'move';
   }
 
   handleDragLeave(event) {
-    event.currentTarget.style.border = 'none';
+    event.currentTarget.style.background = '#fdf1dc';
   }
 
   handleDrop(event) {
     event.preventDefault();
     event.stopPropagation();
-    this.setState({isBeingDragged: false});
-    event.currentTarget.style.border = 'none';
+    event.currentTarget.style.background = '#fdf1dc';
 
     const eventSave = this.state.dragElement;
     eventSave.innerHTML = event.target.innerHTML;
@@ -164,17 +183,19 @@ class App extends Component {
     event.preventDefault();
   }
 
-  componentWillMount() {
-    this.getDice();
-    this.getFormulas();
-    this.getPartyMembers();
-    this.getStats();
+  handleOpenDialog() {
+    this.setState({ isDialogOpen: true });
+  }
+
+  handleCloseDialog() {
+    this.setState({ isDialogOpen: false });
   }
 
   componentDidMount() {
     this.getDice();
     this.getFormulas();
     this.getPartyMembers();
+    this.getMonsterMembers();
     this.getStats();
   }
 
@@ -193,11 +214,21 @@ class App extends Component {
           Functionality somewhat included
         </p>
         <div className="App-body">
-          <Calc formulas={this.state.formulas} dice={this.state.dice} stats={this.state.stats}
-            onChange={this.handleStatChange} onSubmit={this.handleSubmit} onDisable={this.handleStatFieldDisable} />
-          <Party isBeingDragged={this.state.isBeingDragged} partyMembers={this.state.partyMembers} dragElement={this.state.dragElement}
-            onDragStart={this.handleDragStart} onDragOver={this.handleDragOver} onDragLeave={this.handleDragLeave} onDrop={this.handleDrop} />
-          <Monsters />
+          <Calc formulas={this.state.formulas} dice={this.state.dice}
+            stats={this.state.stats} onChange={this.handleStatChange}
+            onSubmit={this.handleSubmit} onDisable={this.handleStatFieldDisable}
+            openDialog={this.handleOpenDialog} closeDialog={this.handleCloseDialog}
+            isDialogOpen={this.state.isDialogOpen} />
+
+          <Party
+            partyMembers={this.state.partyMembers} dragElement={this.state.dragElement}
+            onDragStart={this.handleDragStart} onDragOver={this.handleDragOver}
+            onDragLeave={this.handleDragLeave} onDrop={this.handleDrop} />
+
+          <Monsters
+            monsterMembers={this.state.monsterMembers} dragElement={this.state.dragElement}
+            onDragStart={this.handleDragStart} onDragOver={this.handleDragOver}
+            onDragLeave={this.handleDragLeave} onDrop={this.handleDrop} />
         </div>
       </div>
     );
