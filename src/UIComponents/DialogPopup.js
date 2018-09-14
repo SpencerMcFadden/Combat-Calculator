@@ -15,10 +15,10 @@ class DialogPopup extends Component {
   }
 
   close(event) {
-    event.preventDefault()
+    event.preventDefault();
 
     if (this.props.onClose) {
-      this.props.onClose;
+      this.props.onClose();
     }
   }
 }

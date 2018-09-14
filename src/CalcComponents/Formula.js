@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 class Formula extends Component {
   dynamicAttackFormula(hitDie, additionalDie, numberOfHitDice, numberOfAddDice, statMod, miscBonus) {
-    if(statMod == 0 && miscBonus > 0) {
+    if(statMod === 0 && miscBonus > 0) {
       document.getElementById('Result-title').innerHTML = 'Spell Attack Roll';
     }
     else if(statMod > 0 || miscBonus > 0){
@@ -14,8 +14,8 @@ class Formula extends Component {
     else {
       document.getElementById('Result-title').innerHTML = 'Spell Attack Save';
     }
-    return Math.ceil(Number(hitDie) * numberOfHitDice + Number(additionalDie)
-      * numberOfAddDice + Number(statMod) + Number(miscBonus))
+    return Math.ceil(hitDie * numberOfHitDice + additionalDie
+      * numberOfAddDice + statMod + miscBonus)
   }
 
   render() {

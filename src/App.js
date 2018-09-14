@@ -12,7 +12,14 @@ class App extends Component {
     this.state = {
       formulas: [],
       dice: [],
-      stats: {},
+      stats: {
+        hitDie: 2.5,
+        additionalDie: 0,
+        statMod: 0,
+        miscBonus: 0,
+        numberOfHitDice: 1,
+        numberOfAddDice: 1
+      },
       partyMembers: [],
       monsterMembers: [],
       dragElement: null,
@@ -81,18 +88,22 @@ class App extends Component {
   getPartyMembers() {
     this.setState({partyMembers: [
       {
+        key: 'p1',
         name: 'Testing',
         damagePerRound: 13
       },
       {
+        key: 'p2',
         name: 'Testing2',
         damagePerRound: 12
       },
       {
+        key: 'p3',
         name: 'Testing3',
         damagePerRound: -8
       },
       {
+        key: 'p4',
         name: 'Testing4',
         damagePerRound: 6
       }
@@ -102,18 +113,22 @@ class App extends Component {
   getMonsterMembers() {
     this.setState({monsterMembers: [
       {
+        key: 'm1',
         name: 'MTesting',
         damagePerRound: 9
       },
       {
+        key: 'm2',
         name: 'MTesting2',
         damagePerRound: 11
       },
       {
+        key: 'm3',
         name: 'MTesting3',
         damagePerRound: -6
       },
       {
+        key: 'm4',
         name: 'MTesting4',
         damagePerRound: 3
       }
@@ -174,7 +189,7 @@ class App extends Component {
     const name = event.target.name;
 
     const stats = this.state.stats;
-    stats[name] = value;
+    stats[name] = Number(value);
 
     this.setState({stats});
   }

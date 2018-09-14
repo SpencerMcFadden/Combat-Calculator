@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Combat Calculator",
+  "name": "5e Combat Calculator",
   "icons": [
     {
       "src": "favicon.ico",
